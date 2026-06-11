@@ -1,0 +1,267 @@
+/* ── OVERLAY ──────────────────────────────────────────────────────────────── */
+.premium-gate-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 600;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(6px);
+}
+
+.premium-gate-modal {
+  width: 100%;
+  max-width: 420px;
+  padding: 32px 28px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  position: relative;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 1px var(--gold-dim), 0 24px 64px rgba(0,0,0,0.6), var(--shadow-glow);
+  text-align: center;
+  animation: gateIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes gateIn {
+  from { opacity: 0; transform: scale(0.88) translateY(16px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%  { transform: translateX(-8px); }
+  40%  { transform: translateX(8px); }
+  60%  { transform: translateX(-5px); }
+  80%  { transform: translateX(5px); }
+}
+
+.premium-gate-modal.shake {
+  animation: shake 0.45s ease both;
+}
+
+.premium-gate-close {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  color: var(--text-muted);
+  padding: 6px;
+}
+
+/* ── TOP ICON + BADGE ─────────────────────────────────────────────────────── */
+.premium-gate-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.premium-gate-icon-wrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 20px;
+  background: var(--gold-dim);
+  border: 1px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.premium-gate-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  background: var(--gold-dim);
+  border: 1px solid var(--gold);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+/* ── TITLES ───────────────────────────────────────────────────────────────── */
+.premium-gate-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.premium-gate-sub {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 320px;
+}
+
+/* ── PRICE CARD ───────────────────────────────────────────────────────────── */
+.premium-price-card {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px 24px;
+  width: 100%;
+}
+
+.premium-price-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+
+.premium-price {
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.premium-price-period {
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+.premium-price-note {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ── FEATURE LIST ─────────────────────────────────────────────────────────── */
+.premium-features-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.premium-feature-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+
+.premium-feature-row:last-child { border-bottom: none; }
+
+.premium-feature-icon {
+  font-size: 18px;
+  width: 28px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.premium-feature-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.premium-feature-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.premium-feature-desc {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* ── CTA BUTTON ───────────────────────────────────────────────────────────── */
+.btn-premium-cta {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 20px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, #f5c842, #e8a500);
+  color: #0b0d11;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.15s, transform 0.1s;
+  box-shadow: 0 4px 20px rgba(245, 200, 66, 0.3);
+}
+
+.btn-premium-cta:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+/* ── ACCESS CODE ──────────────────────────────────────────────────────────── */
+.premium-code-link {
+  font-size: 12px;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0;
+  transition: color 0.15s;
+}
+
+.premium-code-link:hover { color: var(--text-secondary); }
+
+.premium-code-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.premium-code-input-row {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+}
+
+.premium-code-input {
+  flex: 1;
+  text-align: center;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+
+.premium-code-input.has-error {
+  border-color: var(--red) !important;
+}
+
+.premium-code-submit {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.premium-code-error {
+  font-size: 12px;
+  color: var(--red);
+}
+
+.premium-code-cancel {
+  font-size: 12px;
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  padding: 0;
+}

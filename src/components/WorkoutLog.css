@@ -1,0 +1,706 @@
+.workout-log {
+  max-width: 960px;
+}
+
+.workout-layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 16px;
+  align-items: start;
+}
+
+.workout-main {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.add-workout-card {
+  padding: 24px;
+}
+
+.exercises-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.exercise-editor {
+  padding: 14px;
+  background: var(--bg-base) !important;
+}
+
+.exercise-header {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.exercise-name-input {
+  flex: 1;
+  font-weight: 500;
+}
+
+.sets-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.set-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.set-num {
+  font-size: 11px;
+  color: var(--text-muted);
+  width: 44px;
+  flex-shrink: 0;
+}
+
+.set-input {
+  width: 72px;
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.set-sep {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.add-set-btn {
+  font-size: 12px;
+  padding: 5px 8px;
+  color: var(--text-muted);
+}
+
+.add-exercise-btn {
+  align-self: flex-start;
+  color: var(--accent);
+}
+
+.save-workout-btn {
+  width: 100%;
+  justify-content: center;
+  padding: 12px;
+}
+
+/* Past workouts */
+.section-title-bare {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.past-workouts-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.workout-card {
+  overflow: hidden;
+}
+
+.workout-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.workout-card-header:hover {
+  background: var(--bg-card-hover);
+}
+
+.workout-card-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.workout-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(167, 139, 250, 0.15);
+  color: #a78bfa;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.workout-card-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.workout-card-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.workout-card-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+}
+
+.workout-card-body {
+  padding: 0 16px 16px;
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.workout-notes {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.workout-ex {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.workout-ex-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.workout-sets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.set-badge {
+  font-size: 12px;
+  background: var(--bg-input);
+  color: var(--text-secondary);
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+/* Bodyweight sidebar */
+.workout-side {
+  position: sticky;
+  top: 24px;
+}
+
+.bw-card {
+  padding: 20px;
+}
+
+.bw-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.bw-save-btn {
+  width: 100%;
+  justify-content: center;
+  padding: 10px;
+  font-size: 13px;
+}
+
+.bw-chart-wrap {
+  margin-bottom: 16px;
+}
+
+.bw-chart-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.bw-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.bw-entry {
+  display: flex;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  gap: 8px;
+}
+
+.bw-entry:last-child {
+  border-bottom: none;
+}
+
+.bw-entry-date {
+  font-size: 12px;
+  color: var(--text-muted);
+  flex: 1;
+}
+
+.bw-entry-val {
+  font-size: 13px;
+  font-weight: 600;
+  color: #a78bfa;
+}
+
+.bw-empty {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 12px 0;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .workout-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .workout-side {
+    position: static;
+  }
+}
+
+/* ── PR TOAST ─────────────────────────────────────────────────────────────── */
+.pr-toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 999;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--gold);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 0 1px var(--gold-dim);
+  max-width: 320px;
+  animation: slideInRight 0.3s ease both;
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+.pr-toast-icon { font-size: 24px; flex-shrink: 0; }
+.pr-toast-body { flex: 1; }
+.pr-toast-title { font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--gold); margin-bottom: 4px; }
+.pr-toast-detail { font-size: 13px; color: var(--text-primary); }
+.pr-toast-prev { font-size: 12px; color: var(--text-muted); }
+.pr-toast-close { color: var(--text-muted); flex-shrink: 0; padding: 2px; }
+.pr-toast-close:hover { color: var(--text-primary); }
+
+/* ── SPLIT BUILDER ────────────────────────────────────────────────────────── */
+.split-builder {
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.split-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.split-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.split-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.split-new-btn {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--accent);
+}
+
+/* Today banner */
+.today-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--accent-dim);
+  border: 1px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin-bottom: 14px;
+}
+
+.today-banner-left {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.today-banner-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.today-banner-workout {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.today-banner-workout.rest {
+  color: var(--text-secondary);
+}
+
+.today-banner-badge {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--accent);
+  background: var(--bg-card);
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--accent);
+}
+
+.today-banner-badge.rest {
+  color: var(--text-muted);
+  border-color: var(--border);
+}
+
+/* Split form */
+.split-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.day-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.day-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.day-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.day-input {
+  text-align: center;
+  padding: 6px 4px !important;
+  font-size: 12px !important;
+}
+
+.split-form-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Splits list */
+.splits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.split-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  transition: border-color 0.15s;
+}
+
+.split-item.active {
+  border-color: var(--accent);
+  background: var(--accent-dim);
+}
+
+.split-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.split-item-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.split-check { color: var(--accent); }
+
+.split-item-actions {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.split-edit-btn {
+  padding: 4px 8px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Week at a glance chips */
+.split-week-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-top: 8px;
+}
+
+.split-day-chip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 4px;
+  border-radius: 6px;
+  background: var(--bg-input);
+  border: 1px solid transparent;
+}
+
+.split-day-chip.today {
+  border-color: var(--accent);
+  background: var(--bg-card);
+}
+
+.split-day-chip.rest {
+  opacity: 0.5;
+}
+
+.split-day-name {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+}
+
+.split-day-workout {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-primary);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.split-day-chip.today .split-day-name { color: var(--accent); }
+.split-day-chip.today .split-day-workout { color: var(--accent); }
+
+.split-empty {
+  font-size: 13px;
+  color: var(--text-muted);
+  padding: 8px 0;
+}
+
+/* ── PR HIGHLIGHTING IN SETS ──────────────────────────────────────────────── */
+.set-row.pr-set .set-input:first-of-type {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.set-pr-badge {
+  font-size: 14px;
+}
+
+.exercise-prev-best {
+  font-size: 11px;
+  color: var(--text-muted);
+  background: var(--bg-input);
+  padding: 2px 8px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.exercises-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.pr-hint {
+  font-size: 11px;
+  color: var(--gold);
+}
+
+/* Auto-fill from split */
+.split-autofill-btn {
+  margin-top: 5px;
+  font-size: 12px;
+  color: var(--accent);
+  text-align: left;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ── PR BOARD ─────────────────────────────────────────────────────────────── */
+.pr-board {
+  padding: 18px;
+  margin-top: 0;
+}
+
+.pr-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.pr-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.pr-entry:last-child { border-bottom: none; }
+
+.pr-exercise {
+  font-size: 13px;
+  color: var(--text-primary);
+  text-transform: capitalize;
+}
+
+.pr-weight {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+/* ── BODYWEIGHT EXPANDED ──────────────────────────────────────────────────── */
+.bw-stats-strip {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.bw-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 8px;
+  border-right: 1px solid var(--border);
+}
+
+.bw-stat:last-child { border-right: none; }
+
+.bw-stat-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.bw-stat-val {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.bw-stat-val.down { color: var(--accent); }
+.bw-stat-val.up   { color: var(--red); }
+
+/* History list */
+.bw-history { margin-top: 4px; }
+
+.bw-history-list {
+  display: flex;
+  flex-direction: column;
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 2px;
+}
+
+.bw-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.bw-entry:last-child { border-bottom: none; }
+
+.bw-entry-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bw-change {
+  font-size: 12px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 20px;
+}
+
+.bw-change.down { background: var(--accent-dim); color: var(--accent); }
+.bw-change.up   { background: var(--red-dim);    color: var(--red); }
+.bw-change.same { background: var(--bg-input);   color: var(--text-muted); }

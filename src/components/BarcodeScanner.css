@@ -1,0 +1,365 @@
+/* ── OVERLAY MODAL ────────────────────────────────────────────────────────── */
+.barcode-scanner-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 500;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.barcode-scanner-modal {
+  width: 100%;
+  max-width: 460px;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.barcode-scanner-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.barcode-scanner-title-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.barcode-scanner-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.barcode-close-btn {
+  padding: 6px;
+  color: var(--text-muted);
+}
+
+/* ── CAMERA VIEWFINDER ────────────────────────────────────────────────────── */
+.barcode-viewfinder {
+  position: relative;
+  background: #000;
+  overflow: hidden;
+}
+
+.barcode-viewfinder.visible {
+  display: block;
+  height: 260px;
+}
+
+.barcode-viewfinder.hidden {
+  display: none;
+}
+
+.barcode-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Targeting box — the 4 corner brackets */
+.barcode-target {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.barcode-target-corner {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border-color: var(--accent);
+  border-style: solid;
+}
+
+.barcode-target-corner.tl { top: 28px;    left: 48px;  border-width: 3px 0 0 3px; border-radius: 3px 0 0 0; }
+.barcode-target-corner.tr { top: 28px;    right: 48px; border-width: 3px 3px 0 0; border-radius: 0 3px 0 0; }
+.barcode-target-corner.bl { bottom: 44px; left: 48px;  border-width: 0 0 3px 3px; border-radius: 0 0 0 3px; }
+.barcode-target-corner.br { bottom: 44px; right: 48px; border-width: 0 3px 3px 0; border-radius: 0 0 3px 0; }
+
+/* Animated scan line */
+.barcode-scan-line {
+  position: absolute;
+  left: 52px;
+  right: 52px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  box-shadow: 0 0 8px var(--accent);
+  top: 28px;
+  animation: scanDown 2s ease-in-out infinite;
+}
+
+@keyframes scanDown {
+  0%   { top: 32px;  opacity: 0.8; }
+  50%  { top: calc(100% - 52px); opacity: 1; }
+  100% { top: 32px;  opacity: 0.8; }
+}
+
+.barcode-hint {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255,255,255,0.7);
+  background: rgba(0,0,0,0.4);
+  padding: 4px 0;
+}
+
+/* ── STATUS STATES ────────────────────────────────────────────────────────── */
+.barcode-status {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 32px 20px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.barcode-status.error { gap: 14px; }
+
+.barcode-spinner {
+  color: var(--accent);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+.barcode-error-text {
+  font-size: 13px;
+  color: var(--text-secondary);
+  max-width: 300px;
+  line-height: 1.5;
+}
+
+/* ── PRODUCT CONFIRM CARD ─────────────────────────────────────────────────── */
+.product-confirm-card {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.product-confirm-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.product-confirm-img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: #fff;
+  flex-shrink: 0;
+}
+
+.product-confirm-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.product-confirm-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin-bottom: 2px;
+}
+
+.product-confirm-brand {
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 2px;
+}
+
+.product-confirm-barcode {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: monospace;
+}
+
+.product-confirm-check {
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+/* Serving adjuster */
+.serving-adjuster {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.serving-adjuster-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.serving-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-sm);
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s;
+  line-height: 1;
+}
+
+.serving-btn:hover { background: var(--border); }
+
+.serving-val {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--accent);
+  min-width: 40px;
+  text-align: center;
+}
+
+.serving-size-label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Macro display */
+.product-macros {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--bg-input);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+}
+
+.product-macro-main {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.product-cal-big {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.product-cal-unit {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.product-macro-bars {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.product-macro-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.product-macro-label {
+  font-size: 11px;
+  font-weight: 600;
+  width: 44px;
+  flex-shrink: 0;
+}
+
+.product-macro-label.protein { color: #a78bfa; }
+.product-macro-label.carbs   { color: var(--accent); }
+.product-macro-label.fat     { color: var(--gold); }
+
+.product-macro-track {
+  flex: 1;
+  height: 5px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.product-macro-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.product-macro-fill.protein { background: #a78bfa; }
+.product-macro-fill.carbs   { background: var(--accent); }
+.product-macro-fill.fat     { background: var(--gold); }
+
+.product-macro-val {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  width: 36px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* Micros */
+.product-micros {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.product-micro {
+  font-size: 12px;
+  color: var(--text-secondary);
+  background: var(--bg-input);
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+
+/* Action buttons */
+.product-confirm-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 4px;
+  border-top: 1px solid var(--border);
+}
+
+.product-confirm-btn {
+  flex: 1;
+  justify-content: center;
+  padding: 11px 16px;
+}
